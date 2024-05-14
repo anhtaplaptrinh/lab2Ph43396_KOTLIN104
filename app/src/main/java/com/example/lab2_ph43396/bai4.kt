@@ -8,26 +8,32 @@ val scanner = Scanner(System.`in`)
 fun main() {
     val scanner = Scanner(System.`in`)
 
-    val sv1 = SinhVien("Trần Tuấn Anh", "PH43396", 10.0, true, 20)
-    val sv2 = SinhVien("Trần Văn Anh", "PH43396", 9.0, false, 18)
+    val sv1 = SinhVien("Trần Tuấn Anh", "PH43", 10.0, true, 20)
+    val sv2 = SinhVien("Trần Văn Anh", "PH22", 9.0, false, 18)
+    val sv3 = SinhVien("Trần Văn Hiếu", "PH46", 6.0, true, 19)
+
 
     var listSV = mutableListOf<SinhVien>()
     listSV.add(sv1)
     listSV.add(sv2)
+    listSV.add(sv3)
+
 
     do {
-        println("------Chuc nang-------")
-        println("1. Xem danh sach sinh vien")
-        println("2. Them sinh vien")
-        println("3. Xoa sinh vien")
-        println("4. Sửa sinh vien")
+        println("------Chương trình quản lý Sinh viên bằng Kotlin-------")
+        println("1. Xem danh sách sinh viên")
+        println("2. Thêm sinh viên")
+        println("3. Xóa sinh viên")
+        println("4. Sửa sinh viên")
+        println("5. Thoát")
 
-        print("Nhập chức năng: ")
+
+        print("Nhập chức năng 1-5: ")
         var s = readLine();
 
         when (s!!.toInt()) {
             1 -> {
-                println("Danh sách sinh vien!")
+                println("Danh sách sinh viên!")
                 for (sv in listSV) {
                     println(sv.getThongTin())
                 }
@@ -47,7 +53,7 @@ fun main() {
                 for (sv in listSV) {
                     if (sv.masv == masv) {
                         listSV.remove(sv)
-                        println("Xoa thanh cong!")
+                        println("Xóa thành công!")
                         check = true
                         break
                     }
@@ -58,16 +64,16 @@ fun main() {
             }
 
             4 -> {
-                print("Nhap ma sinh vien can sua: ")
+                print("Nhập mã sinh viên cần sửa: ")
                 var masv: String = scanner.nextLine();
 
                 var check = false
 
                 for (sv in listSV) {
                     if (sv.masv == masv) {
-                        print("Nhap ten sinh vien: ")
+                        print("Nhập tên sinh viên: ")
                         sv.tensv = scanner.nextLine();
-                        print("Nhap diem trung binh: ")
+                        print("Nhập điểm trung bình: ")
                         sv.diemtb = scanner.nextDouble()
                         scanner.nextLine()
 
@@ -77,7 +83,7 @@ fun main() {
                             sv.datotnghiep = trangThaiTotNghiep.toBoolean()
                         }
 
-                        print("Nhap tuoi sinh vien (bo trong de bo qua): ")
+                        print("Nhap tuổi sinh viên (bỏ trống để bỏ qua): ")
                         var tuoiInput: String? = readLine()
                         if (tuoiInput?.isNotEmpty() == true) {
                             sv.tuoi = tuoiInput.toInt()
@@ -95,8 +101,12 @@ fun main() {
                     println("Không tìm thấy sinh viên!")
             }
 
+            5 -> {
+                break
+            }
+
             else -> {
-                println("Chức năng không hợp lệ!")
+                println("Chức năng không tồn tại !!!")
             }
         }
 
@@ -109,11 +119,11 @@ fun main() {
 }
 
 fun ttsv(): SinhVien {
-    print("Nhap ten sinh vien: ")
+    print("Nhập tên sinh viên: ")
     var tensv: String = scanner.nextLine();
-    print("Nhap ma sinh vien: ")
+    print("Nhập mã sinh viên: ")
     var masv: String = scanner.nextLine();
-    print("Nhap diem trung binh: ")
+    print("Nhập điểm trung bình: ")
     var diemtb: Double = scanner.nextDouble()
     scanner.nextLine()
 
@@ -126,7 +136,7 @@ fun ttsv(): SinhVien {
         datotnghiep = trangThaiTotNghiep.toBoolean()
     }
 
-    print("Nhap tuoi sinh vien (bo trong de bo qua): ")
+    print("Nhập tuổi sinh viên (bỏ trống để bỏ qua): ")
     var tuoiInput: String? = scanner.nextLine()
     if (tuoiInput?.isNotEmpty() == true) {
         tuoi = tuoiInput.toInt()

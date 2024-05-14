@@ -19,18 +19,18 @@ class SinhVien {
 
         var sDatotnghiep: String
         if (datotnghiep == null){
-            sDatotnghiep = "Chua co du lieu"
+            sDatotnghiep = "Chưa có dự liệu"
         }else{
             if (datotnghiep!!){
-                sDatotnghiep = "Da tot nghiep"
+                sDatotnghiep = "Đã tốt nghiệp"
             }else{
-                sDatotnghiep = "Chua tot nghiep"
+                sDatotnghiep = "Chưa tốt nghiệp"
             }
         }
 
         var sTuoi: String
         if (tuoi == null){
-            sTuoi = "Chua co du lieu"
+            sTuoi = "Chưa có dự liệu"
         }else{
             sTuoi = tuoi.toString()
         }
